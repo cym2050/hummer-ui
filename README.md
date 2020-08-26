@@ -1,44 +1,78 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### hummer-ui
 
-In the project directory, you can run:
+--useRef 值实时保持最新、模拟生命周期函数、访问真实的DOM节点
 
-### `yarn start`
+1.1需求分析：完成一个组件库需要考虑的问题：
+•代码结构
+•样式解决方案
+•组件需求分析和编码
+•组件测试用例分析和编码
+•代码打包输出和发布
+•CI\CD，文档生成
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2.1项目结构 styles/ _variables.scss(各种变量以及可配置设置) _mixins.scss(全局 mixins) _functions.scss(全局 functions) components/ Button/ style.scss(组件单独的样式)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2.2代码规范 tsc是一个编译器，不能捕捉规范性的错误，代码规范使用create-react-app自带提供的eslint
 
-### `yarn test`
+3.1 样式解决方案
+•Inline CSS 最差，最好用类名
+•CSS in JS 定义样式对象，还可以做一些计算
+•Styled Component 模板字符串
+•Sass/Less
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4.1 创建自己组件库的色彩体系 系统色板： 基础色板（自然观察得到的） + 中性色板（只含黑白灰） 产品色板： 品牌色 + 辅助色
 
-### `yarn build`
+5.1 组件库样式变量分类
+•基础色彩系统
+•字体系统
+•表单
+•按钮
+•边框和阴影
+•可配置开关
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6.1 normalize.css  初始化样式，保留好的默认样式
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+7.1 Button组件需求分析
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### other笔记
+类型：
+原始数据类型：
+any
+联合union    |
+元组 [string, numbber]
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+对象类型object: 
+interface：
+1.对对象的形状（shape）进行描述
+2.对类（class）进行抽象
+3.Duck Typing
+自定义类型：用；分开，里面定义的只能少不能多
+interface Person {
+   age：number；
+   name？：string；
+}
 
-## Learn More
+类型标识
+:
+?:可选类型
+函数类型：（x：number， y : string）=> number  由定义函数时的参数
+类型推断：
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+readonly
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+########类
+类
+对象
+面向对象：封装、继承、多态
+
+ts-node
+
+修饰符：public、private、protected
+
+类上的属性： 静态属性，可以在类上直接执行  static
+
