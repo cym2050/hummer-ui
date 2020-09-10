@@ -6,7 +6,11 @@ const defaultProps = {
   onClick: jest.fn()
 }
 
-
+const testProps: ButtonProps = {
+  btnType: ButtonType.Primary,
+  size: ButtonSize.Large,
+  className: 'nihao'
+}
 
 describe('test Button component', () => {
   it('should render the correct default button', () => {
@@ -17,6 +21,12 @@ describe('test Button component', () => {
     expect(element).toHaveClass('btn btn-default')
     fireEvent.click(element)
     expect(defaultProps.onClick).toBeCalled()
+  })
+  it('should reder the correct component based on different props', () => {
+    const wrapper = render(<Button {...testProps}>Nice</Button>)
+    const element = wrapper.getByText('Nice')
+    expect(element).toBeInTheDocument()
+    expect(element).toHaveClass('btn-primary btn-lg nihao')
   })
 
 })
