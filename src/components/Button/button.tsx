@@ -58,6 +58,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
 Button.defaultProps = {
     disabled: false,
     btnType: ButtonType.Default
-}
+} 
+
 
 export default Button
