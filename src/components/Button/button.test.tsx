@@ -12,6 +12,11 @@ const testProps: ButtonProps = {
   className: 'nihao'
 }
 
+const disabledProps: ButtonProps = {
+  disabled: true,
+  onClick: jest.fn()
+}
+
 describe('test Button component', () => {
   it('should render the correct default button', () => {
     const wrapper = render(<Button {...defaultProps}>Nice</Button>)
@@ -36,6 +41,11 @@ describe('test Button component', () => {
     expect(element).toHaveClass('btn btn-link')
   })
   it('should render disabled button when disabled set to true', () => {
-    
+    const wrapper = render(<Button {...disabledProps}>Nice</Button>)
+    const element = wrapper.getByText('Nice') as HTMLButtonElement  //element 是 HTMLElement ，没有 disabled，自己更清楚，断言成 HTMLButtonElement
+    expect(element).toBeInTheDocument()
+    expect(element.disabled).toBeTruthy()
+    fireEvent.click(element)
+    expect(disabledProps.onClick).not.toBeCalled()
   })
 })
