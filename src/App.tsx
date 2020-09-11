@@ -22,7 +22,7 @@ function App() {
         {/* <FontAwesomeIcon icon={faCoffee} /> 变量形式引用 */}
         {/* <Icon icon={faCoffee} theme='danger' size='10x' /> */}
         {/* <FontAwesomeIcon icon='arrow-down' /> */}
-        <Icon icon='arrow-down' theme='danger' size='10x' />
+        {/* <Icon icon='arrow-down' theme='danger' size='10x' /> */}
         <Menu onSelect={(index) => { alert(index)}} mode='vertical' defaultOpenSubMenus={['3']}>
             <MenuItem disabled>
               link1

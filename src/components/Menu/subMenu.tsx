@@ -2,6 +2,7 @@ import React, { createContext, useState, useContext, FunctionComponentElement } 
 import classNames from 'classnames'
 import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem'
+import Icon from '../Icon/icon'
 
 export interface SubMenuPops {
   index?: string;
@@ -16,7 +17,9 @@ const SubMenu: React.FC<SubMenuPops> = (props) => {
   const isOpened = ( index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false // 默认要展开的子菜单用数组存起来
   const [ menuOpen, setOpen ] = useState(isOpened) 
   const classes = classNames('menu-item submenu-item', className, {
-     'is-active': context.index === index
+     'is-active': context.index === index,
+     'is-opened': menuOpen,
+     'is-vertical': context.mode === 'vertical'
   })
   const renderChildren = () => {
     const subMenuClasses = classNames('submenu', {
@@ -59,7 +62,7 @@ const SubMenu: React.FC<SubMenuPops> = (props) => {
   return (
     <li key={index} className={classes} {...hoverEvent} >
       <div onClick={handleClick} {...clickEvent} data-testid='test-submenu'>
-        {title}
+        {title} <Icon icon='angle-down' className='arrow-icon' />
       </div>
       {renderChildren()}
     </li>
