@@ -2,30 +2,30 @@ import React from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/button'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
-
+import SubMenu from './components/Menu/subMenu'
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <Menu mode='vertical'>
-            <MenuItem index={0} disabled>
+            <MenuItem disabled>
               link1
             </MenuItem>
-            <MenuItem index={1}>
+            <MenuItem>
               link2
             </MenuItem>
-            <MenuItem index={2}>
+            <MenuItem>
               link3
             </MenuItem>
+            <SubMenu title='dropdown'>
+              <MenuItem>
+                sdfsd 1
+              </MenuItem>
+              <MenuItem>
+                sdfsd 2
+              </MenuItem>
+            </SubMenu>
         </Menu>
-
-
-        <Button>MyButton</Button>
-        <Button size={ButtonSize.Small} btnType={ButtonType.Danger}>MyButton</Button>
-        <Button size={ButtonSize.Large}>MyButton</Button>
-        <Button disabled>disabled</Button>
-        <Button btnType={ButtonType.Link} href='www.baidu.com' disabled>disabled</Button>
-
       </header>
     </div>
   );
