@@ -2,7 +2,6 @@ import React, { createContext, useState, useContext, FunctionComponentElement } 
 import classNames from 'classnames'
 import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem'
-import { error } from 'console'
 
 export interface SubMenuPops {
   index?: string;
@@ -58,8 +57,8 @@ const SubMenu: React.FC<SubMenuPops> = (props) => {
     onMouseLeave: (e: React.MouseEvent) => { handleHover(e, false) }
   } : {}
   return (
-    <li key={index} className={classes} {...hoverEvent}>
-      <div onClick={handleClick} {...clickEvent}>
+    <li key={index} className={classes} {...hoverEvent} >
+      <div onClick={handleClick} {...clickEvent} data-testid='test-submenu'>
         {title}
       </div>
       {renderChildren()}
