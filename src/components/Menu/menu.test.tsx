@@ -18,15 +18,19 @@ const testVerProps: MenuProps = {
 const generateMenu = (props: MenuProps) => {
   return (
     <Menu {...props}>
-      <MenuItem index={0}>
+      {/* <MenuItem index={0}> 升级后不用传入index */}
+      <MenuItem>
         active
       </MenuItem>
-      <MenuItem index={1} disabled>
+      {/* <MenuItem index={1} disabled> */}
+      <MenuItem disabled>
         disabled
       </MenuItem>
-      <MenuItem index={2}>
+      {/* <MenuItem index={2}> */}
+      <MenuItem>
         link
       </MenuItem>
+      <li>hello</li>
     </Menu>
   )
 }
