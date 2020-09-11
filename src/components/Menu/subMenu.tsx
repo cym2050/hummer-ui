@@ -41,9 +41,23 @@ const SubMenu: React.FC<SubMenuPops> = (props) => {
     setOpen(!menuOpen)
   }
 
+  let timer: any
+  const handleHover = (e: React.MouseEvent, toggle: boolean) => {
+    clearTimeout(timer)
+    e.preventDefault()
+    setTimeout(() => {
+      setOpen(toggle)
+    }, 300)
+  }
+
+  const clickEvent = context.mode === 'vertical' ? { handleClick } : {}
+  const hoverEvent = context.mode !== 'vertical' ? {
+    onMouseEnter: (e: React.MouseEvent) => { handleHover(e, true) },
+    onMouseLeave: (e: React.MouseEvent) => { handleHover(e, false) }
+  } : {}
   return (
-    <li key={index} className={classes}>
-      <div onClick={handleClick}>
+    <li key={index} className={classes} {...hoverEvent}>
+      <div onClick={handleClick} {...clickEvent}>
         {title}
       </div>
       {renderChildren()}
