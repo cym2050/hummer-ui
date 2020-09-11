@@ -125,7 +125,6 @@ describe('test Menu and MenuItem component', () => {
     wrapper.container.append(createStyleFile())
     expect(wrapper.queryByText('drop1')).toBeVisible()
   })
-
 })
 
 
