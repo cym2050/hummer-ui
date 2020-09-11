@@ -11,12 +11,16 @@ export interface SubMenuPops {
 }
 
 const SubMenu: React.FC<SubMenuPops> = (props) => {
+  const [ menuOpen, setOpen ] = useState(false)
   const { index, title, className, children } = props
   const context = useContext(MenuContext)
   const classes = classNames('menu-item submenu-item', className, {
      'is-active': context.index === index
   })
   const renderChildren = () => {
+    const subMenuClasses = classNames('submenu', {
+      'menu-opened': menuOpen
+    })
     const childComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>
       if (childElement.type.displayName === 'MenuItem') {
@@ -26,14 +30,20 @@ const SubMenu: React.FC<SubMenuPops> = (props) => {
       }
     })
     return (
-      <ul className='submenu'>
+      <ul className={subMenuClasses}>
         {childComponent}
       </ul>
     )
   }
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpen(!menuOpen)
+  }
+
   return (
     <li key={index} className={classes}>
-      <div>
+      <div onClick={handleClick}>
         {title}
       </div>
       {renderChildren()}

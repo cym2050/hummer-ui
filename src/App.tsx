@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Menu mode='vertical'>
+        <Menu>
             <MenuItem disabled>
               link1
             </MenuItem>
