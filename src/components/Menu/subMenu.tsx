@@ -11,9 +11,11 @@ export interface SubMenuPops {
 }
 
 const SubMenu: React.FC<SubMenuPops> = (props) => {
-  const [ menuOpen, setOpen ] = useState(false)
-  const { index, title, className, children } = props
   const context = useContext(MenuContext)
+  const { index, title, className, children } = props
+  const openedSubMenus = context.defaultOpenSubMenus as Array<string>
+  const isOpened = ( index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false // 默认要展开的子菜单用数组存起来
+  const [ menuOpen, setOpen ] = useState(isOpened) 
   const classes = classNames('menu-item submenu-item', className, {
      'is-active': context.index === index
   })
