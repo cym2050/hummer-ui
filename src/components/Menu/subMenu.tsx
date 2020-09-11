@@ -5,7 +5,7 @@ import { MenuItemProps } from './menuItem'
 import { error } from 'console'
 
 export interface SubMenuPops {
-  index?: number;
+  index?: string;
   title: string;
   className?: string; 
 }
@@ -24,7 +24,7 @@ const SubMenu: React.FC<SubMenuPops> = (props) => {
     const childComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>
       if (childElement.type.displayName === 'MenuItem') {
-        return childElement
+        return React.cloneElement(childElement, { index: `${index}-${i}`}) 
       } else {
         console.error('warning: SubMenu has a child which is not a MenuItem')
       }

@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Menu>
+        <Menu onSelect={(index) => { alert(index)}}>
             <MenuItem disabled>
               link1
             </MenuItem>
