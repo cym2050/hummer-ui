@@ -23,7 +23,7 @@ function App() {
         {/* <Icon icon={faCoffee} theme='danger' size='10x' /> */}
         {/* <FontAwesomeIcon icon='arrow-down' /> */}
         {/* <Icon icon='arrow-down' theme='danger' size='10x' /> */}
-        <Menu onSelect={(index) => { alert(index)}} mode='vertical' defaultOpenSubMenus={['3']}>
+        <Menu onSelect={(index) => { alert(index)}}  defaultOpenSubMenus={['3']}>
             <MenuItem disabled>
               link1
             </MenuItem>

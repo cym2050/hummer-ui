@@ -52,7 +52,7 @@
   }
 }
 .submenu {
-  display: none;
+  // display: none;  // 通过 CSStransition 控制 submenu 节点的有无，所以不用 display 了
   list-style:none;
   padding-left: 0;
   white-space: nowrap;
@@ -68,7 +68,7 @@
   }
 }
 .submenu.menu-opened {
-  display: block;
+  // display: block;
 }
 
 .menu-horizontal {
