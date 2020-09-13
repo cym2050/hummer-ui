@@ -1,9 +1,10 @@
-import React from 'react'
-import Button, { ButtonType, ButtonSize } from './components/Button/button'
+import React, { useState } from 'react'
+import Button from './components/Button/button'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Icon from './components/Icon/icon'
+import Transition from './components/Transition/transition'
 
 // 直接引入,变量类型的 icon
 // import { FontAwesomeIcon,  } from '@fortawesome/react-fontawesome'
@@ -14,8 +15,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas)
 
-
 function App() {
+  const [ show, setShow ] = useState(false)
   return (
     <div className="App">
       <header className="App-header">
@@ -42,6 +43,19 @@ function App() {
               </MenuItem>
             </SubMenu>
         </Menu>
+        <Button size='lg' onClick={ () => { setShow(!show) } }> Toggle </Button>
+        <Transition in={show} timeout={200} animation='zoom-in-top' wrapper>
+          <div>
+            <p>nihaoasdfasdfas</p>
+            <p>nihaoasdfasdfadsf</p>
+            <p>nihaofasdfadsfadsf</p>
+            <p>nihaoasdfasdfadsf</p>
+            <p>nihaofasdfadsfadsf</p>
+            <p>nihaoasdfasdfadsf</p>
+            <p>nihaofasdfadsfadsf</p>
+          </div>
+          <Button btnType='primary' size='lg'>asdfadfa</Button>
+        </Transition>
       </header>
     </div>
   );
